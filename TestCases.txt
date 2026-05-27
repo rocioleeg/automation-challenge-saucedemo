@@ -1,0 +1,362 @@
+========================================
+CASOS DE PRUEBA - LOGIN
+Aplicación: SauceDemo
+URL: https://www.saucedemo.com/
+========================================
+
+--------------------------------------------------
+CP-LOGIN-001
+Escenario: Inicio de sesión válido
+Tipo: Positivo
+--------------------------------------------------
+Precondición:
+- Usuario registrado y activo.
+
+Datos de prueba:
+Usuario: standard_user
+Password: secret_sauce
+
+
+Pasos:
+1. Ingresar usuario válido.
+2. Ingresar contraseña válida.
+3. Hacer clic en "Login".
+
+Resultado esperado:
+- El usuario accede correctamente al inventario.
+- Se visualiza la pantalla de productos.
+
+
+--------------------------------------------------
+CP-LOGIN-002
+Escenario: Inicio de sesión con distintos usuarios válidos
+Tipo: Positivo
+--------------------------------------------------
+Precondición:
+- Usuarios válidos disponibles.
+
+Datos de prueba:
+- standard_user
+- problem_user
+- performance_glitch_user
+- error_user
+- visual_user
+
+Pasos:
+1. Ingresar uno de los usuarios válidos.
+2. Ingresar contraseña válida.
+3. Hacer clic en "Login".
+
+Resultado esperado:
+- El usuario accede correctamente al sistema.
+
+
+--------------------------------------------------
+CP-LOGIN-003
+Escenario: Inicio de sesión con usuario inválido
+Tipo: Negativo
+--------------------------------------------------
+Pasos:
+1. Ingresar usuario inválido.
+2. Ingresar contraseña válida.
+3. Hacer clic en "Login".
+
+Resultado esperado:
+- El sistema muestra mensaje de error.
+- El usuario no accede al sistema.
+
+
+--------------------------------------------------
+CP-LOGIN-004
+Escenario: Inicio de sesión con contraseña inválida
+Tipo: Negativo
+--------------------------------------------------
+Pasos:
+1. Ingresar usuario válido.
+2. Ingresar contraseña inválida.
+3. Hacer clic en "Login".
+
+Resultado esperado:
+- El sistema muestra mensaje de error.
+- El usuario permanece en pantalla de login.
+
+
+--------------------------------------------------
+CP-LOGIN-005
+Escenario: Inicio de sesión con usuario y contraseña inválidos
+Tipo: Negativo
+--------------------------------------------------
+Pasos:
+1. Ingresar usuario inválido.
+2. Ingresar contraseña inválida.
+3. Hacer clic en "Login".
+
+Resultado esperado:
+- El sistema muestra mensaje de error.
+- El acceso es rechazado.
+
+
+--------------------------------------------------
+CP-LOGIN-006
+Escenario: Inicio de sesión con campos vacíos
+Tipo: Negativo
+--------------------------------------------------
+Pasos:
+1. Dejar vacío el campo usuario.
+2. Dejar vacío el campo contraseña.
+3. Hacer clic en "Login".
+
+Resultado esperado:
+- El sistema muestra validación indicando que los campos son obligatorios.
+
+
+--------------------------------------------------
+CP-LOGIN-007
+Escenario: Inicio de sesión con usuario vacío
+Tipo: Negativo
+--------------------------------------------------
+Pasos:
+1. Dejar vacío el campo usuario.
+2. Ingresar contraseña válida.
+3. Hacer clic en "Login".
+
+Resultado esperado:
+- El sistema muestra mensaje de error.
+- No se permite el acceso.
+
+
+--------------------------------------------------
+CP-LOGIN-008
+Escenario: Inicio de sesión con contraseña vacía
+Tipo: Negativo
+--------------------------------------------------
+Pasos:
+1. Ingresar usuario válido.
+2. Dejar vacío el campo contraseña.
+3. Hacer clic en "Login".
+
+Resultado esperado:
+- El sistema muestra mensaje de error.
+- No se permite el acceso.
+
+
+--------------------------------------------------
+CP-LOGIN-009
+Escenario: Inicio de sesión con espacios en blanco
+Tipo: Edge Case
+--------------------------------------------------
+Pasos:
+1. Ingresar espacios en blanco en usuario y/o contraseña.
+2. Hacer clic en "Login".
+
+Resultado esperado:
+- El sistema rechaza el acceso.
+- Se muestra mensaje de error correspondiente.
+
+
+--------------------------------------------------
+CP-LOGIN-010
+Escenario: Inicio de sesión con mayúsculas/minúsculas
+Tipo: Edge Case
+--------------------------------------------------
+Pasos:
+1. Ingresar usuario válido alterando mayúsculas y minúsculas.
+2. Ingresar contraseña válida.
+3. Hacer clic en "Login".
+
+Resultado esperado:
+- El sistema valida correctamente el formato.
+- Si el sistema es case sensitive, el acceso debe ser rechazado.
+
+
+--------------------------------------------------
+CP-LOGIN-011
+Escenario: Inicio de sesión con caracteres especiales
+Tipo: Edge Case
+--------------------------------------------------
+Pasos:
+1. Ingresar caracteres especiales en usuario y/o contraseña.
+2. Hacer clic en "Login".
+
+Resultado esperado:
+- El sistema maneja correctamente los caracteres especiales.
+- No se producen errores inesperados ni fallas visuales.
+- El acceso es rechazado si las credenciales no son válidas.
+
+bueno me pasas los escenaros?
+========================================
+CASOS DE PRUEBA - AGREGADO DE PRODUCTOS AL CARRITO
+Aplicación: SauceDemo
+URL: https://www.saucedemo.com/
+========================================
+
+--------------------------------------------------
+CP-CART-001
+Escenario: Agregar un producto al carrito
+Tipo: Positivo
+--------------------------------------------------
+
+Datos de prueba:
+Producto: Sauce Labs Backpack
+
+Precondición:
+- Usuario autenticado correctamente.
+
+Pasos:
+1. Ubicar el producto "Sauce Labs Backpack".
+2. Hacer clic en "Add to cart".
+3. Acceder al carrito.
+
+Resultado esperado:
+- El producto se agrega correctamente al carrito.
+- El producto se visualiza en el carrito.
+- El badge del carrito muestra 1 producto.
+
+
+--------------------------------------------------
+CP-CART-002
+Escenario: Agregar múltiples productos al carrito
+Tipo: Positivo
+--------------------------------------------------
+
+Datos de prueba:
+Productos:
+- Sauce Labs Backpack
+- Sauce Labs Bike Light
+- Sauce Labs Bolt T-Shirt
+
+Precondición:
+- Usuario autenticado correctamente.
+
+Pasos:
+1. Agregar múltiples productos al carrito.
+2. Acceder al carrito.
+
+Resultado esperado:
+- Todos los productos agregados se visualizan correctamente.
+- El badge refleja la cantidad correcta de productos.
+
+
+--------------------------------------------------
+CP-CART-003
+Escenario: Remover un producto del carrito
+Tipo: Positivo
+--------------------------------------------------
+
+Datos de prueba:
+Producto: Sauce Labs Backpack
+
+Precondición:
+- Producto agregado previamente al carrito.
+
+Pasos:
+1. Acceder al carrito.
+2. Hacer clic en "Remove" sobre el producto.
+
+Resultado esperado:
+- El producto se elimina correctamente.
+- El producto deja de visualizarse en el carrito.
+- El contador del carrito se actualiza correctamente.
+
+
+--------------------------------------------------
+CP-CART-004
+Escenario: Validar persistencia del carrito
+Tipo: Validación
+--------------------------------------------------
+
+Datos de prueba:
+Producto: Sauce Labs Backpack
+
+Precondición:
+- Producto agregado previamente.
+
+Pasos:
+1. Agregar un producto al carrito.
+2. Navegar entre distintas pantallas.
+3. Volver al carrito.
+
+Resultado esperado:
+- El producto continúa presente en el carrito.
+- El contador del carrito permanece correcto.
+
+
+--------------------------------------------------
+CP-CART-005
+Escenario: Validar contador del carrito
+Tipo: Validación
+--------------------------------------------------
+
+Datos de prueba:
+Cantidad esperada: 2 productos
+
+Precondición:
+- Usuario autenticado.
+
+Pasos:
+1. Agregar dos productos al carrito.
+2. Visualizar el badge del carrito.
+
+Resultado esperado:
+- El badge muestra la cantidad correcta de productos agregados.
+
+
+--------------------------------------------------
+CP-CART-006
+Escenario: Visualizar carrito vacío
+Tipo: Negativo
+--------------------------------------------------
+
+Precondición:
+- No tener productos agregados.
+
+Pasos:
+1. Acceder al carrito sin agregar productos.
+
+Resultado esperado:
+- El carrito se visualiza vacío.
+- No se muestran productos cargados.
+
+
+--------------------------------------------------
+CP-CART-007
+Escenario: Agregar y remover productos repetidamente
+Tipo: Edge Case
+--------------------------------------------------
+
+Datos de prueba:
+Producto: Sauce Labs Backpack
+
+Precondición:
+- Usuario autenticado.
+
+Pasos:
+1. Agregar un producto al carrito.
+2. Remover el producto.
+3. Repetir la operación varias veces.
+
+Resultado esperado:
+- El sistema actualiza correctamente el carrito en cada operación.
+- No se producen inconsistencias en el badge ni errores visuales.
+
+
+--------------------------------------------------
+CP-CART-008
+Escenario: Mantener productos agregados tras navegación
+Tipo: Edge Case
+--------------------------------------------------
+
+Datos de prueba:
+Producto: Sauce Labs Backpack
+
+Precondición:
+- Usuario autenticado.
+
+Pasos:
+1. Agregar un producto al carrito.
+2. Navegar por distintas secciones de productos.
+3. Volver al carrito.
+
+Resultado esperado:
+- El producto agregado permanece en el carrito.
+- El contador continúa mostrando la cantidad correcta.
