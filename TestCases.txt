@@ -183,7 +183,6 @@ Resultado esperado:
 - No se producen errores inesperados ni fallas visuales.
 - El acceso es rechazado si las credenciales no son válidas.
 
-bueno me pasas los escenaros?
 ========================================
 CASOS DE PRUEBA - AGREGADO DE PRODUCTOS AL CARRITO
 Aplicación: SauceDemo
