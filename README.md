@@ -98,12 +98,15 @@ screenshots/
 
 ---
 
-# Navegadores
+# Navegadores soportados
 
-Actualmente configurado para:
-- Google Chrome
+Actualmente el framework se encuentra configurado para ejecutarse en Google Chrome por defecto.
 
----
+También es posible ejecutar las pruebas en Microsoft Edge utilizando:
+
+```bash
+mvn clean test -Dbrowser=edge
+```
 
 # Autor
 
